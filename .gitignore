@@ -3,6 +3,9 @@
 # virtual environments
 .venv*
 
+# personal
+private*
+
 ### VS Code ###
 
 # .vscode stuffs
