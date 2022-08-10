@@ -52,6 +52,8 @@ def draw_trajectory(event, color):
 
 canvas.bind("<B1-Motion>", lambda event: draw_trajectory(event, color))
 
+label = tk.Label(window, text=f"{color.upper()}", fg=color)
+label.pack(fill=tk.BOTH, expand=True)
 
 color_r = 0  # 0 ~ 255
 color_g = 0  # 0 ~ 255
@@ -79,6 +81,8 @@ def update_color(target):
     global color
     rgb_tuple = (color_r, color_g, color_b)
     color = change_rgb_tuple_to_hex_code(rgb_tuple)
+    label["fg"] = color
+    label["text"] = color.upper()
 
     if DEBUG:
         print(f"color: {rgb_tuple} ({color})")
@@ -127,6 +131,8 @@ def choose_random_color():
     scale_b.set(color_b)
 
     color = change_rgb_tuple_to_hex_code((color_r, color_g, color_b))
+    label["fg"] = color
+    label["text"] = color.upper()
 
 
 button2 = tk.Button(window, text="Random Color", command=choose_random_color)
