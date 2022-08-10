@@ -15,7 +15,7 @@ color = "#ffffff"
 prev_x, prev_y = (0, 0)  # 마우스를 움직이기 이전 위치
 curr_x, curr_y = (0, 0)  # 마우스 왼쪽 버튼을 누른 상태로 움직였을 때 위치
 
-canvas = tk.Canvas(window, bg="gray")
+canvas = tk.Canvas(window, bg="white")
 canvas.pack(fill=tk.BOTH, expand=True)
 
 
