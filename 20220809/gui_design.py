@@ -59,6 +59,9 @@ canvas6 = tk.Canvas(
 )
 canvas6.grid(row=1, column=1, columnspan=3, sticky="nwse", padx=1, pady=1)
 
+# 메뉴 위에 점선 구분선 제거해주는 옵션
+tearoff = False
+
 # window 크기가 변경될 때, 내부의 canvas들도
 # 같이 크기가 변경되게 해주는 코드
 window.grid_columnconfigure(0, weight=1)
@@ -70,14 +73,14 @@ window.grid_rowconfigure(1, weight=1)
 
 menubar = tk.Menu(window)
 
-filemenu = tk.Menu(menubar)
+filemenu = tk.Menu(menubar, tearoff=tearoff)
 filemenu.add_command(label="Image Open")
 filemenu.add_command(label="Image Erase")
-filemenu.add_separator()  # ----- 구분선을 추가해주는 코드
+filemenu.add_separator()  # 메뉴 항목 사이에 실선 구분선을 추가해주는 코드
 filemenu.add_command(label="Exit", command=window.quit)
 
-edit = tk.Menu(menubar)
-image_rotate = tk.Menu(edit)
+edit = tk.Menu(menubar, tearoff=tearoff)
+image_rotate = tk.Menu(edit, tearoff=tearoff)
 image_rotate.add_command(label="90°")
 image_rotate.add_command(label="180°")
 image_rotate.add_command(label="270°")
@@ -87,7 +90,7 @@ edit.add_command(label="image flip")
 edit.add_command(label="image size")
 edit.add_command(label="canvas size")
 
-line = tk.Menu(menubar)
+line = tk.Menu(menubar, tearoff=tearoff)
 line.add_command(label="auto line")
 line.add_command(label="line rectification")
 line.add_command(label="noise remove")
