@@ -115,4 +115,22 @@ scale_b = tk.Scale(
 scale_b.pack(fill=tk.BOTH, expand=True)
 
 
+def choose_random_color():
+    import random
+
+    global color, color_r, color_g, color_b
+    color_r = random.randint(0, 255)
+    scale_r.set(color_r)
+    color_g = random.randint(0, 255)
+    scale_g.set(color_g)
+    color_b = random.randint(0, 255)
+    scale_b.set(color_b)
+
+    color = change_rgb_tuple_to_hex_code((color_r, color_g, color_b))
+
+
+button2 = tk.Button(window, text="Random Color", command=choose_random_color)
+button2.pack(fill=tk.BOTH, expand=True)
+
+
 window.mainloop()
